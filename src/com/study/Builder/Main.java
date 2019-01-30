@@ -1,7 +1,4 @@
-package com.study;
-
-import com.study.Builder.Contact;
-import com.study.Builder.ContactBuilder;
+package com.study.Builder;
 
 public class Main {
 
@@ -13,5 +10,6 @@ public class Main {
                 .mail("ss@com")
                 .adress("oli")
                 .build();
+
     }
 }

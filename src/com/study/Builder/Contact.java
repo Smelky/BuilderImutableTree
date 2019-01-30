@@ -15,15 +15,4 @@ public class Contact {
         this.mail = contactBuilder.getMail();
         this.adress = contactBuilder.getAdress();
     }
-
-    public static void main(String[] args) {
-        final Contact contact = new ContactBuilder()
-                .name("Vova")
-                .surname("buba")
-                .phone("78546")
-                .mail("ss@com")
-                .adress("oli")
-                .build();
-
-    }
 }

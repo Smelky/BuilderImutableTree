@@ -1,12 +1,15 @@
 package com.study.Tree;
 
-class Circle {
+import java.io.Serializable;
 
-    private static int circle;
+class Circle implements Serializable {
+
+    private int circle;
 
     Circle(int circle) {
         this.circle = circle;
     }
+
 
     int getCircle() {
         return circle;

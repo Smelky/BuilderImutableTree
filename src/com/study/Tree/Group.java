@@ -1,18 +1,20 @@
 package com.study.Tree;
 
-class Group {
+import java.io.Serializable;
 
-    private static int pentagon = 5;
+class Group implements Serializable {
 
-    private static Circle circle = new Circle(0);
-    private static Square square = new Square(4);
-    private static Triangle triangle = new Triangle(3);
+    private int pentagon = 5;
 
-    static void showFigures () {
-        System.out.println(circle.getCircle());
-        System.out.println(square.getSquare());
-        System.out.println(triangle.getTriangle());
-        System.out.println(pentagon);
+    private Circle circle = new Circle(0);
+    private Square square = new Square(4);
+    private Triangle triangle = new Triangle(3);
+
+    void showFigures () {
+        System.out.println("Circle has " + circle.getCircle() + " corners");
+        System.out.println("Square has " + square.getSquare() + " corners");
+        System.out.println("Triangles has " + triangle.getTriangle() + " corners");
+        System.out.println("Pentagon has " + pentagon + " corners");
     }
 
 }

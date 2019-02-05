@@ -1,8 +1,10 @@
 package com.study.Tree;
 
-class Square {
+import java.io.Serializable;
 
-    private static int square;
+class Square implements Serializable {
+
+    private int square;
 
     Square(int square) {
         this.square = square;

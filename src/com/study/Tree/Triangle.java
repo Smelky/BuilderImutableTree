@@ -1,8 +1,10 @@
 package com.study.Tree;
 
-class Triangle {
+import java.io.Serializable;
 
-    private static int triangle;
+class Triangle implements Serializable {
+
+    private int triangle;
 
     Triangle(int triangle) {
         this.triangle = triangle;

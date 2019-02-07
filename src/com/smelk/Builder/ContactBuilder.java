@@ -1,4 +1,4 @@
-package com.study.Builder;
+package com.smelk.Builder;
 
 public class ContactBuilder {
 
@@ -8,27 +8,27 @@ public class ContactBuilder {
     private String mail;
     private String adress;
 
-    public ContactBuilder name (final String name) {
+    public ContactBuilder name(final String name) {
         this.name = name;
         return this;
     }
 
-    public ContactBuilder surname (final String surname) {
+    public ContactBuilder surname(final String surname) {
         this.surname = surname;
         return this;
     }
 
-    public ContactBuilder phone (final String phone) {
+    public ContactBuilder phone(final String phone) {
         this.phone = phone;
         return this;
     }
 
-    public ContactBuilder mail (final String mail) {
+    public ContactBuilder mail(final String mail) {
         this.mail = mail;
         return this;
     }
 
-    public ContactBuilder adress (final String adress) {
+    public ContactBuilder adress(final String adress) {
         this.adress = adress;
         return this;
     }

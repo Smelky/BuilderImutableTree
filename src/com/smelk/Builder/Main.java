@@ -1,4 +1,4 @@
-package com.study.Builder;
+package com.smelk.Builder;
 
 public class Main {
 

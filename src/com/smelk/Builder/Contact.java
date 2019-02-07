@@ -1,14 +1,14 @@
-package com.study.Builder;
+package com.smelk.Builder;
 
 public class Contact {
 
-    private final String name;
-    private final String surname;
-    private final String phone;
-    private final String mail;
-    private final String adress;
+    private String name;
+    private String surname;
+    private String phone;
+    private String mail;
+    private String adress;
 
-    Contact(final ContactBuilder contactBuilder) {
+    Contact(ContactBuilder contactBuilder) {
         this.name = contactBuilder.getName();
         this.surname = contactBuilder.getSurname();
         this.phone = contactBuilder.getPhone();

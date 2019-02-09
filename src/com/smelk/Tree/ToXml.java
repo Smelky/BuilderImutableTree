@@ -1,61 +1,52 @@
 package com.smelk.Tree;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-
 class ToXml {
 
     static String tab = "   ";
 
-    static void writeToXml(File file) {
-        StringBuilder groupToXml = javaToXmlFromGroupPentagon();
-
-        try (FileWriter fileWriter = new FileWriter(file)) {
-            fileWriter.write(groupToXml.toString());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private static StringBuilder javaToXmlFromGroupPentagon() {
+    static void writeToXml(Group group) {
         StringBuilder xmlReturn = new StringBuilder();
-        xmlReturn.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n");
-        xmlReturn.append(tab + "<Group>\n");
-        xmlReturn.append(tab + tab + "<" + Group.name + ">\n");
-        xmlReturn.append(tab + tab + tab + "<name>" + Group.name + "</name>\n");
-        xmlReturn.append(tab + tab + tab + "<name>" + Group.pentagonCorners + "</name>\n");
-        xmlReturn.append(tab + tab + "</" + Group.name + ">\n");
-        javaToXmlFromGroupCircle(xmlReturn);
-        return xmlReturn;
 
+        for (int i = 0; i < group.figures.size(); i++) {
+            if (i == 0) {
+                xmlReturn.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n");
+                xmlReturn.append(tab + "<Group>\n");
+            }
+            if (group.figures.get(i) == group.getCircle()) {
+                javaToXmlFromGroupCircle(group, xmlReturn);
+            } else if (group.figures.get(i) == group.getSquare()) {
+                javaToXmlFromGroupSquare(group, xmlReturn);
+            } else if (group.figures.get(i) == group.getTriangle()) {
+                javaToXmlFromGroupTriangle(group, xmlReturn);
+            }
+            if (i == group.figures.size() - 1) {
+                xmlReturn.append(tab + "</Group>\n");
+            }
+        }
+        StringBuilder groupToXml = xmlReturn;
     }
 
-    private static StringBuilder javaToXmlFromGroupCircle(StringBuilder xmlReturn) {
-        xmlReturn.append(tab + tab +"<Circle>\n");
-        xmlReturn.append(tab + tab + tab + "<name>" + Group.circle.getName() + "</name>\n");
-        xmlReturn.append(tab + tab + tab + "<corners>" + Group.circle.getCorners() + "</corners>\n");
-        xmlReturn.append(tab + tab +"</Circle>\n");
-        javaToXmlFromGroupSquare(xmlReturn);
+    private static StringBuilder javaToXmlFromGroupCircle(Group group, StringBuilder xmlReturn) {
+        xmlReturn.append(tab + tab + "<Circle>\n");
+        xmlReturn.append(tab + tab + tab + "<name>" + group.circle.getName() + "</name>\n");
+        xmlReturn.append(tab + tab + tab + "<corners>" + group.circle.getCorners() + "</corners>\n");
+        xmlReturn.append(tab + tab + "</Circle>\n");
         return xmlReturn;
     }
 
-    private static StringBuilder javaToXmlFromGroupSquare(StringBuilder xmlReturn) {
+    private static StringBuilder javaToXmlFromGroupSquare(Group group, StringBuilder xmlReturn) {
         xmlReturn.append(tab + tab + "<Square>\n");
-        xmlReturn.append(tab + tab + tab + "<name>" + Group.square.getName() + "</name>\n");
-        xmlReturn.append(tab + tab + tab + "<corners>" + Group.square.getCorners() + "</corners>\n");
+        xmlReturn.append(tab + tab + tab + "<name>" + group.square.getName() + "</name>\n");
+        xmlReturn.append(tab + tab + tab + "<corners>" + group.square.getCorners() + "</corners>\n");
         xmlReturn.append(tab + tab + "</Square>\n");
-        javaToXmlFromGroupTriangle(xmlReturn);
         return xmlReturn;
     }
 
-    private static StringBuilder javaToXmlFromGroupTriangle(StringBuilder xmlReturn) {
+    private static StringBuilder javaToXmlFromGroupTriangle(Group group, StringBuilder xmlReturn) {
         xmlReturn.append(tab + tab + "<Triangle>\n");
-        xmlReturn.append(tab + tab + tab + "<name>" + Group.triangle.getName() + "</name>\n");
-        xmlReturn.append(tab + tab + tab + "<corners>" + Group.square.getCorners() + "</corners>\n");
+        xmlReturn.append(tab + tab + tab + "<name>" + group.triangle.getName() + "</name>\n");
+        xmlReturn.append(tab + tab + tab + "<corners>" + group.square.getCorners() + "</corners>\n");
         xmlReturn.append(tab + tab + "</Triangle>\n");
-        xmlReturn.append(tab + "</Group>\n");
         return xmlReturn;
-
     }
 }

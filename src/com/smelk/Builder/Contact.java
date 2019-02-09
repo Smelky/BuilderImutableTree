@@ -8,11 +8,12 @@ public class Contact {
     private String mail;
     private String adress;
 
-    Contact(ContactBuilder contactBuilder) {
+    protected Contact(ContactBuilder contactBuilder) {
         this.name = contactBuilder.getName();
         this.surname = contactBuilder.getSurname();
         this.phone = contactBuilder.getPhone();
         this.mail = contactBuilder.getMail();
         this.adress = contactBuilder.getAdress();
     }
+
 }

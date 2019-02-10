@@ -5,9 +5,9 @@ import java.util.List;
 
 class Group {
 
-    static Circle circle = new Circle("Circle", 0);
-    static Square square = new Square("Triangle", 4);
-    static Triangle triangle = new Triangle("Triangle", 3);
+    static Circle circle = new Circle("Circle", 0,5);
+    static Square square = new Square("Square", 4, 8);
+    static Triangle triangle = new Triangle("Triangle", 3, 6);
 
     List<Object> figures = new ArrayList();
 

@@ -25,12 +25,14 @@ class ToXml {
             }
         }
         StringBuilder groupToXml = xmlReturn;
+        System.out.println(groupToXml);
     }
 
     private static StringBuilder javaToXmlFromGroupCircle(Group group, StringBuilder xmlReturn) {
         xmlReturn.append(tab + tab + "<Circle>\n");
         xmlReturn.append(tab + tab + tab + "<name>" + group.circle.getName() + "</name>\n");
         xmlReturn.append(tab + tab + tab + "<corners>" + group.circle.getCorners() + "</corners>\n");
+        xmlReturn.append(tab + tab + tab + "<radius>" + group.circle.getRadius() + "</radius>\n");
         xmlReturn.append(tab + tab + "</Circle>\n");
         return xmlReturn;
     }
@@ -39,6 +41,7 @@ class ToXml {
         xmlReturn.append(tab + tab + "<Square>\n");
         xmlReturn.append(tab + tab + tab + "<name>" + group.square.getName() + "</name>\n");
         xmlReturn.append(tab + tab + tab + "<corners>" + group.square.getCorners() + "</corners>\n");
+        xmlReturn.append(tab + tab + tab + "<perimeter>" + group.square.getPerimeter() + "</perimeter>\n");
         xmlReturn.append(tab + tab + "</Square>\n");
         return xmlReturn;
     }
@@ -46,7 +49,8 @@ class ToXml {
     private static StringBuilder javaToXmlFromGroupTriangle(Group group, StringBuilder xmlReturn) {
         xmlReturn.append(tab + tab + "<Triangle>\n");
         xmlReturn.append(tab + tab + tab + "<name>" + group.triangle.getName() + "</name>\n");
-        xmlReturn.append(tab + tab + tab + "<corners>" + group.square.getCorners() + "</corners>\n");
+        xmlReturn.append(tab + tab + tab + "<corners>" + group.triangle.getCorners() + "</corners>\n");
+        xmlReturn.append(tab + tab + tab + "<area>" + group.triangle.getArea() + "</area>\n");
         xmlReturn.append(tab + tab + "</Triangle>\n");
         return xmlReturn;
     }

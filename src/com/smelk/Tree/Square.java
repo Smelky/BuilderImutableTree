@@ -4,14 +4,20 @@ class Square {
 
     String name;
     int corners;
+    int perimeter;
 
-    public Square(String name, int corners) {
+    public Square(String name, int corners, int perimeter) {
         this.name = name;
         this.corners = corners;
+        this.perimeter = perimeter;
     }
 
     public String getName() {
         return name;
+    }
+
+    public int getPerimeter() {
+        return perimeter;
     }
 
     public int getCorners() {

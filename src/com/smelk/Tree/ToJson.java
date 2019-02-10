@@ -4,9 +4,8 @@ public class ToJson {
 
     static String tab = "  ";
 
-    static void writeToJson(Group group) {
+        static void writeToJson(Group group) {
         StringBuilder jsonReturn = new StringBuilder();
-        group.figuresInGroup();
 
         for (int i = 0; i < group.figures.size(); i++) {
             if (i == 0) {
@@ -23,31 +22,35 @@ public class ToJson {
                 jsonReturn.append("}\n");
             }
         }
+            group.figuresInGroup();
         StringBuilder groupToJson = jsonReturn;
-        System.out.println(groupToJson);
+
     }
 
     private static StringBuilder javaToJsonFromGroupCircle(Group group, StringBuilder jsonReturn) {
         jsonReturn.append(tab + "\"name\":\"Group\":[\n");
         jsonReturn.append(tab + tab + "{\n");
-        jsonReturn.append(tab + tab + "\"name\":" + "\"" + group.circle.name + "\",\n");
-        jsonReturn.append(tab + tab + "\"corners\":" + "\"" + group.circle.corners + "\"\n");
+        jsonReturn.append(tab + tab + "\"name\":" + "\"" + group.circle.getName() + "\",\n");
+        jsonReturn.append(tab + tab + "\"corners\":" + "\"" + group.circle.getCorners() + "\"\n");
+        jsonReturn.append(tab + tab + "\"radius\":" + "\"" + group.circle.getRadius() + "\"\n");
         jsonReturn.append(tab + tab + "},\n");
         return jsonReturn;
     }
 
     private static StringBuilder javaToJsonFromGroupSquare(Group group, StringBuilder jsonReturn) {
         jsonReturn.append(tab + tab + "{\n");
-        jsonReturn.append(tab + tab + "\"name\":" + "\"" + group.square.name + "\",\n");
-        jsonReturn.append(tab + tab + "\"corners\":" + "\"" + group.square.corners + "\"\n");
+        jsonReturn.append(tab + tab + "\"name\":" + "\"" + group.square.getName() + "\",\n");
+        jsonReturn.append(tab + tab + "\"corners\":" + "\"" + group.square.getCorners() + "\"\n");
+        jsonReturn.append(tab + tab + "\"perimeter\":" + "\"" + group.square.getPerimeter() + "\"\n");
         jsonReturn.append(tab + tab + "},\n");
         return jsonReturn;
     }
 
     private static StringBuilder javaToJsonFromGroupTriangle(Group group, StringBuilder jsonReturn) {
         jsonReturn.append(tab + tab + "{\n");
-        jsonReturn.append(tab + tab + "\"name\":" + "\"" + group.triangle.name + "\",\n");
-        jsonReturn.append(tab + tab + "\"corners\":" + "\"" + group.triangle.corners + "\"\n");
+        jsonReturn.append(tab + tab + "\"name\":" + "\"" + group.triangle.getName() + "\",\n");
+        jsonReturn.append(tab + tab + "\"corners\":" + "\"" + group.triangle.getCorners() + "\"\n");
+        jsonReturn.append(tab + tab + "\"area\":" + "\"" + group.triangle.getArea() + "\"\n");
         jsonReturn.append(tab + tab + "}\n");
         jsonReturn.append(tab + "]\n");
         return jsonReturn;

@@ -6,6 +6,7 @@ public class ToJson {
 
     static void writeToJson(Group group) {
         StringBuilder jsonReturn = new StringBuilder();
+        group.figuresInGroup();
 
         for (int i = 0; i < group.figures.size(); i++) {
             if (i == 0) {

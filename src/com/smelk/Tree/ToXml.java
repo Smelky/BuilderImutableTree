@@ -6,6 +6,7 @@ class ToXml {
 
     static void writeToXml(Group group) {
         StringBuilder xmlReturn = new StringBuilder();
+        group.figuresInGroup();
 
         for (int i = 0; i < group.figures.size(); i++) {
             if (i == 0) {

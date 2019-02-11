@@ -1,6 +1,6 @@
 package com.smelk.Tree;
 
-class Circle {
+class Circle extends Figures {
 
     String name;
     int corners;

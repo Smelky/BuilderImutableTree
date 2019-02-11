@@ -1,57 +1,64 @@
 package com.smelk.Tree;
 
+import java.lang.*;
+
+import static com.smelk.Tree.Group.*;
+
 class ToXml {
 
     static String tab = "   ";
 
     static void writeToXml(Group group) {
         StringBuilder xmlReturn = new StringBuilder();
-        group.figuresInGroup();
 
-        for (int i = 0; i < group.figures.size(); i++) {
+        Group.AnotherGroup anotherGroup = group.new AnotherGroup();
+
+        Group.addFiguresInGroupToList();
+        int sizeOfGroup = group.figuresInGroup.size();
+        anotherGroup.addFiguresInAnotherGroupToList();
+
+        for (int i = 0; i <= group.figuresInGroup.size() - 1; i++) {
             if (i == 0) {
                 xmlReturn.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n");
                 xmlReturn.append(tab + "<Group>\n");
             }
-            if (group.figures.get(i) == group.getCircle()) {
-                javaToXmlFromGroupCircle(group, xmlReturn);
-            } else if (group.figures.get(i) == group.getSquare()) {
-                javaToXmlFromGroupSquare(group, xmlReturn);
-            } else if (group.figures.get(i) == group.getTriangle()) {
-                javaToXmlFromGroupTriangle(group, xmlReturn);
-            }
-            if (i == group.figures.size() - 1) {
+            if (i == sizeOfGroup) {
                 xmlReturn.append(tab + "</Group>\n");
+                xmlReturn.append(tab + "<anotherGroup>\n");
+            }
+
+            if (group.figuresInGroup.get(i) == group.getCircle()) {
+                javaToXml(circle, xmlReturn);
+            } else if (group.figuresInGroup.get(i) == group.getSquare()) {
+                javaToXml(square, xmlReturn);
+            } else if (group.figuresInGroup.get(i) == group.getTriangle()) {
+                javaToXml(triangle, xmlReturn);
+            } else if (group.figuresInGroup.get(i) == anotherGroup.getParallelogram()) {
+                javaToXml(anotherGroup.parallelogram, xmlReturn);
+            } else if (group.figuresInGroup.get(i) == anotherGroup.getCone()) {
+                javaToXml(anotherGroup.cone, xmlReturn);
+            } else if (group.figuresInGroup.get(i) == anotherGroup.getRhombus()) {
+                javaToXml(anotherGroup.rhombus, xmlReturn);
+            }
+
+            if (i == group.figuresInGroup.size() - 1) {
+                xmlReturn.append(tab + "</anotherGroup>\n");
             }
         }
         StringBuilder groupToXml = xmlReturn;
-        System.out.println(groupToXml);
     }
 
-    private static StringBuilder javaToXmlFromGroupCircle(Group group, StringBuilder xmlReturn) {
-        xmlReturn.append(tab + tab + "<Circle>\n");
-        xmlReturn.append(tab + tab + tab + "<name>" + group.circle.getName() + "</name>\n");
-        xmlReturn.append(tab + tab + tab + "<corners>" + group.circle.getCorners() + "</corners>\n");
-        xmlReturn.append(tab + tab + tab + "<radius>" + group.circle.getRadius() + "</radius>\n");
-        xmlReturn.append(tab + tab + "</Circle>\n");
-        return xmlReturn;
-    }
-
-    private static StringBuilder javaToXmlFromGroupSquare(Group group, StringBuilder xmlReturn) {
-        xmlReturn.append(tab + tab + "<Square>\n");
-        xmlReturn.append(tab + tab + tab + "<name>" + group.square.getName() + "</name>\n");
-        xmlReturn.append(tab + tab + tab + "<corners>" + group.square.getCorners() + "</corners>\n");
-        xmlReturn.append(tab + tab + tab + "<perimeter>" + group.square.getPerimeter() + "</perimeter>\n");
-        xmlReturn.append(tab + tab + "</Square>\n");
-        return xmlReturn;
-    }
-
-    private static StringBuilder javaToXmlFromGroupTriangle(Group group, StringBuilder xmlReturn) {
-        xmlReturn.append(tab + tab + "<Triangle>\n");
-        xmlReturn.append(tab + tab + tab + "<name>" + group.triangle.getName() + "</name>\n");
-        xmlReturn.append(tab + tab + tab + "<corners>" + group.triangle.getCorners() + "</corners>\n");
-        xmlReturn.append(tab + tab + tab + "<area>" + group.triangle.getArea() + "</area>\n");
-        xmlReturn.append(tab + tab + "</Triangle>\n");
+    private static StringBuilder javaToXml(Figures figure, StringBuilder xmlReturn) {
+        xmlReturn.append(tab + tab + "<" + figure.getName() + ">\n");
+        xmlReturn.append(tab + tab + tab + "<name>" + figure.getName() + "</name>\n");
+        xmlReturn.append(tab + tab + tab + "<corners>" + figure.getCorners() + "</corners>\n");
+        xmlReturn.append(tab + tab + tab + "<radius>" + figure.getRadius() + "</radius>\n");
+        xmlReturn.append(tab + tab + tab + "<area>" + figure.getArea() + "</area>\n");
+        xmlReturn.append(tab + tab + tab + "<perimeter>" + figure.getPerimeter() + "</perimeter>\n");
+        xmlReturn.append(tab + tab + tab + "<bulk>" + figure.getBulk() + "</bulk>\n");
+        xmlReturn.append(tab + tab + tab + "<<height>" + figure.getHeight() + "</height>\n");
+        xmlReturn.append(tab + tab + tab + "<side>" + figure.getSide() + "</side>\n");
+        xmlReturn.append(tab + tab + "</" + figure.getName() + ">\n");
         return xmlReturn;
     }
 }

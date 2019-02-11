@@ -1,6 +1,6 @@
 package com.smelk.Tree;
 
-class Square {
+class Square extends Figures {
 
     String name;
     int corners;

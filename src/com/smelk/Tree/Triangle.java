@@ -1,6 +1,6 @@
 package com.smelk.Tree;
 
-class Triangle {
+class Triangle extends Figures {
 
     String name;
     int corners;

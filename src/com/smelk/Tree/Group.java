@@ -5,29 +5,57 @@ import java.util.List;
 
 class Group {
 
-    static Circle circle = new Circle("Circle", 0,5);
+    static Circle circle = new Circle("Circle", 0, 5);
     static Square square = new Square("Square", 4, 8);
     static Triangle triangle = new Triangle("Triangle", 3, 6);
 
-    List<Object> figures = new ArrayList();
+    static List figuresInGroup = new ArrayList();
 
-    public static Circle getCircle() {
+    static void addFiguresInGroupToList() {
+
+        figuresInGroup.add(circle);
+        figuresInGroup.add(square);
+        figuresInGroup.add(triangle);
+
+    }
+
+    static Circle getCircle() {
         return circle;
     }
 
-    public static Square getSquare() {
+    static Square getSquare() {
         return square;
     }
 
-    public static Triangle getTriangle() {
+    static Triangle getTriangle() {
         return triangle;
     }
 
-    void figuresInGroup() {
-        figures.add(circle);
-        figures.add(square);
-        figures.add(triangle);
+    class AnotherGroup {
 
+        Parallelogram parallelogram = new Parallelogram("Parallelogram", 4, 2);
+        Rhombus rhombus = new Rhombus("Rhombus", 4, 5);
+        Cone cone = new Cone("Cone", 1, 9);
+
+        void addFiguresInAnotherGroupToList() {
+
+            figuresInGroup.add(parallelogram);
+            figuresInGroup.add(rhombus);
+            figuresInGroup.add(cone);
+
+        }
+
+        public Parallelogram getParallelogram() {
+            return parallelogram;
+        }
+
+        public Rhombus getRhombus() {
+            return rhombus;
+        }
+
+        public Cone getCone() {
+            return cone;
+
+        }
     }
-
 }

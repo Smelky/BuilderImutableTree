@@ -1,0 +1,61 @@
+{
+  "figures": [
+    {
+      "radius": 4.3
+    },
+    {
+      "radius": 5.2
+    },
+    {
+      "radius": 8.3
+    },
+    {
+      "corners": 4,
+      "perimeter": 18
+    },
+    {
+      "corners": 4,
+      "perimeter": 12
+    },
+    {
+      "corners": 3,
+      "area": 7
+    },
+    {
+      "corners": 3,
+      "area": 4
+    }
+  ],
+  "groups": [
+    {
+      "figures": [
+        {
+          "radius": 6.2
+        },
+        {
+          "radius": 9.4
+        },
+        {
+          "corners": 4,
+          "perimeter": 11
+        },
+        {
+          "corners": 4,
+          "perimeter": 43
+        },
+        {
+          "corners": 3,
+          "area": 87
+        },
+        {
+          "corners": 3,
+          "area": 24
+        },
+        {
+          "corners": 3,
+          "area": 90
+        }
+      ]
+    }
+  ]
+}

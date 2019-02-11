@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Group>
+    <figures>
+        <circle>
+            <radius>4.3</radius>
+        </circle>
+        <circle>
+            <radius>5.2</radius>
+        </circle>
+        <circle>
+            <radius>8.3</radius>
+        </circle>
+        <square>
+            <corners>4</corners>
+            <perimeter>18</perimeter>
+        </square>
+        <square>
+            <corners>4</corners>
+            <perimeter>12</perimeter>
+        </square>
+        <triangle>
+            <corners>3</corners>
+            <area>7</area>
+        </triangle>
+        <triangle>
+            <corners>3</corners>
+            <area>4</area>
+        </triangle>
+    </figures>
+</Group>

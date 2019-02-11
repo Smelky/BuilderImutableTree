@@ -1,4 +1,4 @@
-package com.smelk.Immutable;
+package com.smelk.immutable;
 
 public final class Person {
 
